@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@300;600;700&display=swap');
+
+@font-face {
+    font-family: Roboto, sans-serif;
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: UniSans;
+    src: url("../fonts/Uni Sans Regular.ttf");
+}
+@font-face {
+    font-family: UniSansHv;
+    src: url("../fonts/Uni Sans Bold.ttf");
+}
+@font-face {
+    font-family: Modular;
+    src: url("../fonts/ModularSans.otf");
+}
+@font-face {
+    font-family: Error;
+    src: url("../fonts/error-404.otf");
+}
+:root {
+    --font: UniSansHv;
+    --font-size: 15px;
+    --color-:#acee00;
+}
+body {
+    background-color: #030a24;
+    overflow: hidden;
+    top: -6rem;
+    position: relative;
+}
+
+/* ------- HEADER TEXT ------- */
+
+.headerWrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding-right: 1rem;
+}
+
+#header_two {
+    position: relative;
+    font-family: 'Roboto Mono', monospace;
+    font-size:  14px;
+    top: 133px;
+    color: var(--color-);
+    font-weight: bold;
+    padding-left: 9.7rem;
+    z-index: 800;
+}
+ul{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    top: 170px;
+    left: -30px;
+}
+ul li{
+  list-style:none;
+  position:relative;
+
+}
+ul li a{
+    position:relative;
+    text-decoration:none;
+    font-size:60px;
+    line-height: 60px;
+    color:transparent;
+    letter-spacing: 6px;
+    -webkit-text-stroke:0.5px var(--clr);
+    font-family: Modular;
+    top: 0px;
+    z-index: 1200;
+}
+ul li a::before{
+  content:attr(data-text);
+  position:absolute;
+  color:var(--color-);
+  width:7px;
+  overflow:hidden;
+  transition:1.2s;
+  height: 60px;
+  border-right:2px solid var(--color-);
+    text-shadow: 4px 4px #384132;
+
+}
+ul li a:hover::before {
+    width: 96%;
+    animation: blink 0.1s;
+}
+ul li a:hover  {
+    transform: scale(1.5);
+}
+
+/* -------- LANDING MENU --------- */
+
+.flex-container {
+    padding: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: wrap column;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    overflow-x: hidden;
+    overflow-y: visible;
+    top: 20px;
+    height: auto;
+}
+.form-group {
+	background-size: cover;
+	height: 200px;
+	position: relative;
+	align-self: center;
+	align-content: center;
+	min-width: 200px;
+	max-width: 200px;
+	border-radius: 10px;
+	transition: transform .5s ease;
+	top: 150px;
+	left: -25px;
+	border: none;
+	box-shadow: 5px 5px #32324b;
+	margin: auto;
+	background: linear-gradient(#bf3a79,#081c66);
+    z-index: 1100;
+}
+
+.formPlanet {
+    position: absolute;
+    scale: 0.4;
+    bottom: -8rem;
+    right: -8rem;
+    z-index: -100;
+}
+.form-group:hover {
+    transform: scale(1.1);
+}
+
+.form-group:hover ~ .dot {
+    transform: scale(1.3) translateY(20px);
+}
+
+.form-group:hover ~ .dot_2 {
+    transform: translateY(200px) scale(1.1);
+}
+
+/* BUTTONS */
+
+#login {
+    margin-top: 55px;
+    margin-left: 55px;
+    font-size: 13px;
+    padding: 3px;
+    height: 33px;
+    width: 97px;
+    text-shadow: 1px 1px #414138;
+    background-color: #7bb012;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 8px 25px 0 rgba(0,0,0,0.19);
+    opacity: 1;
+}
+
+#register {
+    margin-top: 15px;
+    font-size: 13px;
+    margin-left: 55px;
+    padding: 3px;
+    height: 37px;
+    width: 97px;
+    text-shadow: 1px 1px #414138;
+    background-color: #e63376;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 8px 25px 0 rgba(0,0,0,0.19);
+    opacity: 1
+}
+
+/* --------- SHARED FORM --------- */
+
+#username, #password, #room,
+#username_reg, #password_reg {
+    width: 70%;
+    outline-style: none;
+    box-shadow: none;
+    font-size: var(--font-size);
+    font-family: var(--font);
+    z-index: 1;
+    margin-left: 15%;
+    border-radius: 4px;
+    margin-top: 10%;
+    display: none;
+}
+
+/* -------- LOG-IN FORM -------- */
+
+/*  FORM  */
+.login-form {
+	margin-top: 1%;
+	position: relative;
+	padding-top: 0.2rem;
+	display: flex;
+	flex-direction: column;
+}
+
+/* BUTTONS */
+#connect_login {
+    margin-top: 17px;
+    margin-left: 30px;
+    font-size: 12px;
+    padding: 3px;
+    height: 25px;
+    width: 65px;
+    text-shadow: 1px 1px #414138;
+    background-color: #7bb012;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 8px 25px 0 rgba(0,0,0,0.19);
+    display: none;
+    transition: background-color 1s;
+}
+
+#back_login {
+    margin-top: -25px;
+    margin-left: 105px;
+    font-size: 12px;
+    padding: 3px;
+    height: 25px;
+    width: 65px;
+    text-shadow: 1px 1px #414138;
+    background-color: #ff296f;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 8px 25px 0 rgba(0,0,0,0.19);
+    display: none;
+    transition: background-color 1s ease-in;
+}
+
+/* -------- REGISTRATION FORM -------- */
+
+
+/* FORM */
+.registration-form {
+	margin-top: 5%;
+	position: relative;
+	padding-top: 0.2rem;
+	display: flex;
+	flex-direction: column;
+}
+
+/* BUTTONS */
+
+#register_conf {
+    margin-left: 30px;
+    font-size: 12px;
+    padding: 3px;
+    height: 25px;
+    width: 65px;
+    margin-top: 25px;
+    text-shadow: 1px 1px #414138;
+    background-color: #7bb012;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 8px 25px 0 rgba(0,0,0,0.19);
+    display: none;
+}
+
+#back_reg {
+    margin-top: -25px;
+    margin-left: 105px;
+    font-size: 12px;
+    padding: 3px;
+    height: 25px;
+    width: 65px;
+    text-shadow: 1px 1px #414138;
+    background-color: #e63376;
+    box-shadow: 0 6px 8px 0 rgba(0,0,0,0.24), 0 8px 25px 0 rgba(0,0,0,0.19);
+    display: none;
+    transition: background-color 1s;
+}
+
+
+.select {
+    width: 75%;
+    font-family: var(--font);
+    font-size: var(--font-size);
+    outline-style: none;
+    box-shadow: none;
+    z-index: 1;
+    margin-left: 13%;
+    border-radius: 4px;
+}
+.option {
+    width: 100%;
+    font-family: var(--font);
+    font-size: var(--font-size);
+    outline-style: none;
+    box-shadow: none;
+    z-index: 1;
+}
+
+
+
+/* -------- BUTTON EFX ---------- */
+
+.btn {
+    border-radius: 2px;
+    font-family: var(--font);
+    font-size: 15px;
+    color: #ffffff;
+    margin-left: 35%;
+    margin-top: 6.5%;
+    text-align: center;
+    border: none;
+    cursor:pointer;
+}
+
+#login:hover {
+    background-color: #839e49;
+    transition: transform 0.7s ease;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#register:hover {
+    background-color: #ce4c7b;
+    transition: transform 0.7s ease;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#connect_login:hover,
+#register_conf:hover
+{
+    transition: transform 0.7s ease;
+    background-color: #91aa5d;
+}
+
+#back_reg:hover,
+#back_login:hover {
+    transition: transform 0.7s ease;
+    background-color: #de6390;
+}
+
+/*  ------- ILLUSTRATIONS/IMAGES ---------- */
+
+/* MOVING PLANET */
+#planet {
+    position: absolute;
+    z-index: -1300;
+    padding-left: 120rem;
+    padding-bottom: 0rem;
+    top: 5rem;
+    scale: 0.21;
+    animation: MovePlanet 30s ease-in-out infinite;
+}
+
+/* BACKGROUND BOX */
+.box {
+    margin: 0 auto;
+    background-color: #a3cc3b;
+    height: 175px;
+    min-width: 200px;
+    max-width: 200px;
+    border-radius: 10px;
+    transition: transform .5s ease;
+    z-index: -1200;
+    border: none;
+    box-shadow: 5px 5px #657931;
+}
+
+/* SCALING DOTS */
+.dot {
+    height: 120px;
+    width: 120px;
+    display: inline-block;
+    z-index: -1000;
+    margin: 0 auto;
+    position: relative;
+    transition: transform 0.7s ease;
+    bottom: 300px;
+    left: -190px;
+    border: none;
+    scale: 0.27;
+}
+
+.dot_2 {
+	height: 100px;
+	width: 100px;
+	display: inline-block;
+	margin: 0 auto;
+	position: relative;
+	transition: transform 0.7s ease;
+	bottom: 320px;
+	left: -199px;
+    scale: 0.21;
+}
+
+/* ASTRONAUT */
+.illustrationWrap {
+	scale: 0.27;
+	bottom: 70rem;
+	margin-top: -70rem;
+    margin-left: -1.5rem;
+}
+.illustration {
+	animation: MoveUpDown 12s linear infinite;
+}
+
+
+/* ----------- EFFECTS ----------- */
+
+@keyframes blink {
+  100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes MoveUpDown {
+    0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-100px);
+      }
+}
+
+@keyframes MovePlanet {
+    0%, 100% {
+        
+        transform: translateY(20px) rotate3d(0, 0, 1, 60deg);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+}

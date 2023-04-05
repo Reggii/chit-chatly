@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <link rel="stylesheet" href="{% static 'css/log-in-reg.css' %}">
+    <link rel="stylesheet" href="{% static 'alertifyjs/css/alertify.css' %}">
+    <meta charset="UTF-8">
+    <title>ChitChatly</title>
+</head>
+<body>
+    <div class="headerWrap">
+        <ul>
+        <li style="--clr:#7fd05f">
+            <h2><a href="#" data-text="&nbsp;CHITCHATLY">&nbsp;CHITCHATLY&nbsp;</a></h2>
+        </li>
+        </ul>
+        <div id="header_two">..you can fill in the blanks!</div>
+        <div id="planet">
+            <img src="{% static 'images/planet.png' %}" alt="planet">
+        </div>
+    </div>
+    <div class="container">
+        <div class="flex-container">
+
+            <form class="form-group" method="POST">{% csrf_token %}
+                <div class="formPlanet">
+                    <img src="{% static 'images/form-planet.png' %}" alt="form-planet">
+                </div>
+                <div class="hide">
+                    <button type="button" class="btn" id="login">Log-In</button>
+                    <button class="btn" id="register" type="button">Register</button>
+                </div>
+                <div class="login-form"> {% csrf_token %}
+                    <input type="text" id="username" placeholder="Enter Username">
+                    <input type="text" id="password" placeholder="Enter Password">
+                    <input type="text" id="room" placeholder="Enter Room Name">
+                    <button type="button" class="btn btn-login" id="connect_login">Connect</button>
+                    <button type="button" class="btn" id="back_login">Back</button>
+                </div>
+                <div class="registration-form"> {% csrf_token %}
+                    <input type="text" id="username_reg" placeholder="Enter Username" name="username_reg">
+                    <input type="text" id="password_reg" placeholder="Enter Password" name="password_reg">
+                    <button type="button" class="btn btn-register" id="register_conf">Register</button>
+                    <button type="button" class="btn" id="back_reg">Back</button>
+                </div>
+            </form>
+                <div class="box"></div>
+                <div class="dot">
+                    <img src="{% static 'images/planet_three.png' %}" alt="planet">
+                </div>
+                <div class="dot_2">
+                    <img src="{% static 'images/planet_two.png' %}" alt="planet">
+                </div>
+            <div class="illustrationWrap">
+                <div class="illustration">
+                    <img src="{% static 'images/space_meditation_two.png' %}" alt="illustration">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/main-login-reg.js' %}">
+    </script>
+    <script type="module" src="{% static 'js/login-form.js' %}">
+    </script>
+    <script type="module" src="{% static 'js/registration-form.js' %}">
+    </script>
+</html>
