@@ -3,7 +3,6 @@ import os
 from django.test import TestCase 
 from django.test import LiveServerTestCase
 from django.conf import settings
-from .models import Video
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
