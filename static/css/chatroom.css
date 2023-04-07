@@ -76,6 +76,8 @@ body {
 }
 
 #chat-log {
+    position: relative;
+    left: -1.4rem;
     font-family: 'Roboto Mono', monospace;
     font-size:  14px;
     color: var(--color-);
