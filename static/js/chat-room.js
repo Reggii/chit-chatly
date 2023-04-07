@@ -6,6 +6,7 @@ const userName = document.cookie
   .split("; ")
   .find((row) => row.startsWith("username="))
   ?.split("=")[1];
+  
 const chatSocket = new WebSocket(
     'ws://'
     + window.location.host
@@ -137,52 +138,6 @@ function change_room(sendData) {
         alertify.alert('Error', 'Username or password incorrect')
     }
     })}
-
-// function delete_from_json() {
-//     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-//     const sendData ={
-//         'username': userName,
-//         'room': roomName
-//     }
-//     $.ajax({
-//         url: '/api/delete_user_from_room/',
-//         method: 'POST',
-//         data: JSON.stringify(sendData),
-//         headers: {
-//             "Content-Type": "application/json",
-//             'X-CSRFToken': csrftoken
-//         },
-//         success: function(data) {
-//             console.log(data);
-//         },
-//         error: function(data) {
-//             console.log(data);
-//         }
-//     });
-//   }
-
-// function save_to_json() {
-//     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-//     const sendData ={
-//         'username': userName,
-//         'room': roomName
-//     }
-//     $.ajax({
-//         url: '/api/save_user_to_room/',
-//         method: 'POST',
-//         data: JSON.stringify(sendData),
-//         headers: {
-//             "Content-Type": "application/json",
-//             'X-CSRFToken': csrftoken
-//         },
-//         success: function(data) {
-//             console.log(data);
-//         },
-//         error: function(data) {
-//             console.log(data);
-//         }
-//     });
-//   }
 
 
 const roomHeader = document.querySelector('#room_name')
