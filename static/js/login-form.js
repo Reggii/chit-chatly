@@ -48,13 +48,10 @@ function loginUser(userDetails) {
                 'X-CSRFToken': csrftoken
             },
             success: function(data) {
-                console.log(data);
-                console.log(`Connected to room ${userDetails.room}`)
                 document.cookie = `username=${userDetails.username}`
                 window.location.href = `/chat/room=${userDetails.room}`
             },
             error: function(data) {
-                console.log(data);
                 alertify.alert('Error', 'Username or password incorrect')
             }
         });
