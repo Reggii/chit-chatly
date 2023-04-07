@@ -26,9 +26,13 @@ chatSocket.onmessage = function(e) {
 };
 
 
-chatSocket.onclose = function(e) {
-    console.error('Chat socket closed unexpectedly');
-};
+chatSocket.addEventListener('close', function (event) {
+    alertify.alert('Connection closed', 'You have been disconnected from the server').set(
+        'onok', function(closeEvent){ 
+            window.location.href = `http://127.0.0.1:8000/`;
+        })
+    console.log('disconnected');
+});
 
 
 document.querySelector('#chat-message-input').focus();
@@ -69,8 +73,10 @@ document.querySelector('#log-out').onclick = function(e) {
             window.location.href = `http://127.0.0.1:8000/`
         },
         error: function() {
-            // alertify.alert('Unable to complete operation', 'You are already logged out')
-            window.location.href = `http://127.0.0.1:8000/`
+            alertify.alert('Unable to complete operation', 'You are already logged out')
+            alertify.addEventListener('onok', function() {
+                window.location.href = `http://127.0.0.1:8000/`
+            })
         }
     });
 };
