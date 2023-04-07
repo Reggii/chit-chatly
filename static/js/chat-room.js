@@ -53,9 +53,14 @@ document.querySelector('#chat-message-submit').onclick = function(e) {
 
 document.querySelector('#log-out').onclick = function(e) {
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    const sendData ={
+        'username': userName,
+        'room': roomName
+    }
     $.ajax({
         url: '/api/log_out_user/',
         method: 'POST',
+        data: JSON.stringify(sendData),
         headers: {
             "Content-Type": "application/json",
             'X-CSRFToken': csrftoken
@@ -64,7 +69,8 @@ document.querySelector('#log-out').onclick = function(e) {
             window.location.href = `http://127.0.0.1:8000/`
         },
         error: function() {
-            return alertify.alert('Unable to complete operation', 'You are already logged out')
+            // alertify.alert('Unable to complete operation', 'You are already logged out')
+            window.location.href = `http://127.0.0.1:8000/`
         }
     });
 };

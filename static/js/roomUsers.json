@@ -1,1 +1,14 @@
-"{\"roomname\": \"rihelm\", \"username\": \"rihelm\"}"
+[
+  {
+    "roomname": "rihelm",
+    "users": [
+      "rihelm"
+    ]
+  },
+  {
+    "roomname": "asdasf",
+    "users": [
+      "rihelm"
+    ]
+  }
+]
