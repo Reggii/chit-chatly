@@ -1,3 +1,5 @@
+// This file is used to display and hide the login and registration forms
+
 // Buttons
 const loginButton = document.getElementById('login')
 const registerButton = document.getElementById('register')
