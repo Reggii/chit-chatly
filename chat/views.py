@@ -48,7 +48,7 @@ def login_user(request):
             return JsonResponse({'error': 'Invalid username or password'}, status=status_code)
     return JsonResponse({'error': 'Invalid request'})
 
-
+@api_view(['POST'])
 def logout_user(request):
     room = request.data['room']
     username = request.data['username']
