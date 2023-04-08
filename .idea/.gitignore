@@ -8,7 +8,7 @@ db.sqlite3
 media
 
 # Static data
-roomUsers.json
+.static/js/roomUsers.json
 
 # Backup files # 
 *.bak 
