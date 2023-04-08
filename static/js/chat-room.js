@@ -17,21 +17,24 @@ const chatSocket = new WebSocket(
 );
 
 
-setTimeout(function() {
+setTimeout(function() { // Display joined room message in chat text box
 const message = userName + ' has joined the room'
-display_online()
 chatSocket.send(JSON.stringify({
     'message': message
 }))}, 1000);
 
 
-setTimeout(function() {
-    chatSocket.send(JSON.stringify({
-        'message': onlineUsers }))
-}, 1500);
+setTimeout(function() { // Display online users 
+    display_online()
+        setTimeout(function() { // Get online users from json file and display in users box
+        chatSocket.send(JSON.stringify({
+            'message': onlineUsers }))
+        }, 500); 
+}, 500);
 
 chatSocket.onmessage = function(e) {
     const _data = JSON.parse(e.data);
+    console.log(_data)
     if (Array.isArray(_data.message)) {
         document.querySelector('#user-log').value = '';
         for (const user of _data.message[0]) {
@@ -144,6 +147,8 @@ function change_room(sendData) {
         if (data.response == 'changing room') {
             display_online()
             document.cookie = `username=${userName}`
+            chatSocket.send(JSON.stringify({
+            'message': {userName} + ' has left the room' }))
             window.location.href = `/chat/room=${sendData.new_room}`
              }
         else if (data.response == 'deleted user') {
@@ -164,6 +169,8 @@ function display_online() {
             for (const room of json_data) {
                 if (room.roomname === roomName) {
                     onlineUsers.push(room.users)
+                    console.log(onlineUsers)
+                    console.log(json_data)
                 }
             }})
 }
