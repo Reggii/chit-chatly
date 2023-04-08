@@ -16,11 +16,12 @@ def save_as_json(username, roomname):
       if room['roomname'] == roomname:
             if username not in room['users']:
               room['users'].append(username)
-            dump_to_json(json_file_name, json_data)
+            _dump_to_json(json_file_name, json_data)
             return
     json_data.append(room_object)
-    dump_to_json(json_file_name, json_data)
+    _dump_to_json(json_file_name, json_data)
     return
+
 
 def delete_from_json(username, roomname):
     json_file_name = './static/js/roomUsers.json'
@@ -33,9 +34,10 @@ def delete_from_json(username, roomname):
         for user in room['users']:
           if user == username:
             room['users'].remove(username)
-    dump_to_json(json_file_name, json_data)
+    _dump_to_json(json_file_name, json_data)
     return
 
-def dump_to_json(json_file_name, json_data):
+
+def _dump_to_json(json_file_name, json_data):
     with open(json_file_name, 'w') as f:
       json.dump(json_data, f, indent=2)
