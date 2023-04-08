@@ -99,12 +99,10 @@ body {
 #user-log {
     position: absolute;
     font-family: 'Roboto Mono', monospace;
-    font-size:  14px;
+    font-size: 14px;
     color: var(--color-);
-    font-weight: regular;
     margin-bottom: 1rem;
     background: transparent;
-    border: 1px solid var(--color-);
     outline: none;
     resize: none;
     left: 21.6rem;
@@ -116,12 +114,11 @@ body {
 #user-log-header {
     position: absolute;
     font-family: 'Roboto Mono', monospace;
-    font-size:  16px;
+    font-size: 15px;
     color: var(--color-);
-    font-weight: regular;
     left: 21.5rem;
     top: 15.8rem;
-    width: 10rem;
+    width: 12rem;
 }
 
 #chat-message-input {
