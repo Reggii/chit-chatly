@@ -7,6 +7,9 @@ __pycache__
 db.sqlite3
 media
 
+# Static data
+roomUsers.json
+
 # Backup files # 
 *.bak 
 
