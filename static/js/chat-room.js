@@ -1,5 +1,6 @@
 import '../alertifyjs/alertify.js'
 
+let onlineUsers = []
 const roomName = JSON.parse(document.getElementById('room-name').textContent);
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 const userName = document.cookie
@@ -15,16 +16,31 @@ const chatSocket = new WebSocket(
     + '/'
 );
 
+
 setTimeout(function() {
 const message = userName + ' has joined the room'
+display_online()
 chatSocket.send(JSON.stringify({
     'message': message
-})); }, 1000);
+}))}, 1000);
 
+
+setTimeout(function() {
+    chatSocket.send(JSON.stringify({
+        'message': onlineUsers }))
+}, 1500);
 
 chatSocket.onmessage = function(e) {
-    const data = JSON.parse(e.data);
-    document.querySelector('#chat-log').value += (data.message + '\n');
+    const _data = JSON.parse(e.data);
+    if (Array.isArray(_data.message)) {
+        document.querySelector('#user-log').value = '';
+        for (const user of _data.message[0]) {
+            document.querySelector('#user-log').value += (user + '\n');
+        }
+    }
+    else {
+        document.querySelector('#chat-log').value += (_data.message + '\n');
+    }
 };
 
 
@@ -102,7 +118,6 @@ document.querySelector('#change-room').onclick = function(e) {
             alertifyHeader.style.color = '#1e1e1e'
             return
         } 
-
     else {  
     const sendData ={
         'username': userName,
@@ -115,6 +130,7 @@ document.querySelector('#change-room').onclick = function(e) {
     });
 };
 
+
 function change_room(sendData) {
     $.ajax({
     url: '/api/change_room/',
@@ -126,6 +142,7 @@ function change_room(sendData) {
     },
     success: function(data) {
         if (data.response == 'changing room') {
+            display_online()
             document.cookie = `username=${userName}`
             window.location.href = `/chat/room=${sendData.new_room}`
              }
@@ -135,11 +152,22 @@ function change_room(sendData) {
     },
     error: function(data) {
         console.log(data);
-        alertify.alert('Error', 'Username or password incorrect')
     }
     })}
 
 
+function display_online() {
+        const json_file_name = 'http://127.0.0.1:8000/static/js/roomUsers.json';
+        fetch(json_file_name)
+        .then(response => response.json())
+        .then(json_data => {
+            for (const room of json_data) {
+                if (room.roomname === roomName) {
+                    onlineUsers.push(room.users)
+                }
+            }})
+}
+    
 const roomHeader = document.querySelector('#room_name')
 roomHeader.innerHTML = roomHeader.innerHTML + roomName
 
