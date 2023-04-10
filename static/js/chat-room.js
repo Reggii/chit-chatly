@@ -156,8 +156,6 @@ function change_room(sendData) {
         if (data.response == 'changing room') {
             display_online()
             document.cookie = `username=${userName}`
-            chatSocket.send(JSON.stringify({
-            'message': {userName} + ' has left the room' }))
             window.location.href = `/chat/room=${sendData.new_room}`
              }
         else if (data.response == 'deleted user') {
