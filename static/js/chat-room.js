@@ -48,6 +48,9 @@ chatSocket.onmessage = function(e) {
 
 
 chatSocket.addEventListener('close', function (event) {
+    chatSocket.send(JSON.stringify({
+        'message': userName + ' has left the room' 
+    }))
     alertify.alert('Connection closed', 'You have been disconnected from the server').set(
         'onok', function(closeEvent){ 
             const sendData = {
@@ -82,6 +85,9 @@ document.querySelector('#chat-message-submit').onclick = function(e) {
 
 
 document.querySelector('#log-out').onclick = function(e) {
+    chatSocket.send(JSON.stringify({
+        'message': userName + ' has left the room' 
+    }))
     const sendData ={
         'username': userName,
         'room': roomName
@@ -144,6 +150,9 @@ function change_room(sendData) {
         'X-CSRFToken': csrftoken
     },
     success: function(data) {
+        chatSocket.send(JSON.stringify({
+            'message': {userName} + ' has left the room' 
+        }))
         if (data.response == 'changing room') {
             display_online()
             document.cookie = `username=${userName}`
