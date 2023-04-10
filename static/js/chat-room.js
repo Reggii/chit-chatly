@@ -151,7 +151,7 @@ function change_room(sendData) {
     },
     success: function(data) {
         chatSocket.send(JSON.stringify({
-            'message': {userName} + ' has left the room' 
+            'message': userName + ' has left the room' 
         }))
         if (data.response == 'changing room') {
             display_online()
