@@ -1,4 +1,46 @@
 /* ------- MOBILE STYLES for log-in-reg.css ------- */
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 428px) {
+    html, body {
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    ul {
+        top: 5rem;
+        left: -.5rem;
+    }
+    ul li a{
+        font-size: 42px;
+        -webkit-text-stroke: none;
+        color: #acee00;
+        text-underline-offset: 0px;
+    }
+    ul li a:hover::before {
+        display: none;
+    }
+    ul li a:hover  {
+        display: none;
+    }
+    a:link { text-decoration: none; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:active { text-decoration: none; }
+
+    ul li a::before{
+        height: 36px;
+        display: none;
+      
+      }
+    .headerWrap {
+        height: 0px;
+    }
+    #header_two {
+        top: 2rem;
+        left: -2rem;
+    }
+    .flex-container {
+        left: 1rem;
+        overflow-x: visible;
+    }
+
 }

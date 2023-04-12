@@ -28,9 +28,6 @@
 }
 body {
     background-color: #030a24;
-    overflow: hidden;
-    top: -6rem;
-    position: relative;
 }
 
 /* ------- HEADER TEXT ------- */
@@ -54,6 +51,7 @@ body {
     font-weight: bold;
     padding-left: 9.7rem;
     z-index: 800;
+    white-space: nowrap;
 }
 ul{
     position:relative;

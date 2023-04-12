@@ -14,8 +14,8 @@
 }
 body {
     background-color: #030a24;
-    overflow: hidden;
 }
+
 
 #pageWrap {
     margin-top: 10rem;
@@ -38,8 +38,8 @@ body {
     justify-content: center;
     align-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 100vh;
+    height: 6em;
 }
 
 #room_name {
