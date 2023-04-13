@@ -34,7 +34,6 @@ setTimeout(function() { // Display online users
 
 chatSocket.onmessage = function(e) {
     const _data = JSON.parse(e.data);
-    console.log(_data)
     if (Array.isArray(_data.message)) {
         document.querySelector('#user-log').value = '';
         for (const user of _data.message[0]) {
@@ -60,7 +59,6 @@ chatSocket.addEventListener('close', function (event) {
             }
             change_room(sendData)
         })
-    console.log('disconnected');
 });
 
 
@@ -176,8 +174,6 @@ function display_online() {
             for (const room of json_data) {
                 if (room.roomname === roomName) {
                     onlineUsers.push(room.users)
-                    console.log(onlineUsers)
-                    console.log(json_data)
                 }
             }})
 }
