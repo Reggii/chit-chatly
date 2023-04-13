@@ -1,0 +1,63 @@
+@media screen and (max-width: 428px) {
+    html, body {
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    body {
+        height: 100vh
+    }
+    textarea {
+        width: 26em;
+        height: 20em;
+        margin-left: 3em;
+    }
+    #headerWrap {
+        top: -10em;
+    }
+    #chatWindow {
+        top: -3em;
+    }
+    #chat-message-input {
+        width: 20em;
+        margin-left: 1em;
+        margin-bottom: 23em;
+    }
+    #chat-message-submit {
+        margin-bottom: 23em;
+    }
+    #user-log {
+        top: 31rem;
+        left: -20.69rem;
+        width: 25.5em;
+        height: 6em;
+        text-align: center;
+        border: none;
+    }
+    #user-log-header {
+        top: 28.2rem;
+        left: -11.4rem;
+    }
+    #log-out {
+        top: -24rem;
+        right: 30.5rem;
+        z-index: 10;
+        font-size: 15px;
+        padding: 6px;
+    }
+    #change-room {
+        top: -21rem;
+        right: 37.6rem;
+        z-index: 10;
+        font-size: 15px;
+        padding: 6px;
+    }
+    #astronauthand {
+        top: -19rem;
+        left: -14rem;
+    }
+    #sixplanets {
+        top: 23rem;
+        left: -1rem;
+        transform: rotate(13deg);
+    }
+}
