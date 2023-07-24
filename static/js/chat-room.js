@@ -99,12 +99,12 @@ document.querySelector('#log-out').onclick = function(e) {
             'X-CSRFToken': csrftoken
         },
         success: function() {
-            window.location.href = `http://127.0.0.1:8000/`
+            window.location.href = window.location.host
         },
         error: function() {
             alertify.alert('Unable to complete operation', 'You are already logged out')
             alertify.addEventListener('onok', function() {
-                window.location.href = `http://127.0.0.1:8000/`
+                window.location.href = window.location.host
             })
         }
     });
