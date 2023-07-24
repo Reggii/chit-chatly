@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf.urls.static import static
+from chatsite import settings
 from . import views
 
 urlpatterns = [
@@ -9,3 +11,7 @@ urlpatterns = [
     path("chat/room=<str:room_name>/", views.room, name="room"),
     path('api/change_room/', views.change_room, name="change_room"),
 ]
+
+if settings.DEBUG:
+    urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
