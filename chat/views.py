@@ -11,7 +11,7 @@ def login_reg_index(request):
     return render(request, "main_log-in-reg.html")
 
 
-@login_required(login_url='http://127.0.0.1:8000/')
+@login_required(login_url='https://jellyfish-app-p2o6w.ondigitalocean.app')
 def room(request, room_name):
     return render(request, "room.html", {"room_name": room_name})
 

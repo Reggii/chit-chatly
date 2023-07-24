@@ -157,7 +157,7 @@ function change_room(sendData) {
             window.location.href = `/chat/room=${sendData.new_room}`
              }
         else if (data.response == 'deleted user') {
-            window.location.href = `http://127.0.0.1:8000/`
+            window.location.href = window.location.host
             }
     },
     error: function(data) {
@@ -167,7 +167,7 @@ function change_room(sendData) {
 
 
 function display_online() {
-        const json_file_name = 'http://127.0.0.1:8000/static/js/roomUsers.json';
+        const json_file_name = window.location.host + '/static/js/roomUsers.json';
         fetch(json_file_name)
         .then(response => response.json())
         .then(json_data => {
