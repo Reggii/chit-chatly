@@ -28,6 +28,7 @@ outcome==1.2.0
 packaging==23.1
 psycopg2-binary==2.9.6
 pyasn1==0.4.8
+python_version==3.10.64
 pyasn1-modules==0.2.8
 pycparser==2.21
 pyOpenSSL==23.1.1
