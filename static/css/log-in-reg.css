@@ -28,6 +28,7 @@
 }
 body {
     background-color: #030a24;
+    overflow: hidden;
 }
 
 /* ------- HEADER TEXT ------- */
@@ -40,6 +41,7 @@ body {
     align-content: center;
     align-items: center;
     padding-right: 1rem;
+    top: -11rem;
 }
 
 #header_two {
@@ -100,6 +102,11 @@ ul li a:hover::before {
 ul li a:hover  {
     transform: scale(1.5);
 }
+
+.container {
+    position: relative;
+    top: -12rem;
+  }
 
 /* -------- LANDING MENU --------- */
 

@@ -9,7 +9,7 @@ const userName = document.cookie
   ?.split("=")[1];
   
 const chatSocket = new WebSocket(
-    'ws://'
+    'wss://'
     + window.location.host
     + '/ws/chat/'
     + roomName
