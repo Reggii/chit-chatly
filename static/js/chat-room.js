@@ -99,12 +99,12 @@ document.querySelector('#log-out').onclick = function(e) {
             'X-CSRFToken': csrftoken
         },
         success: function() {
-            window.location.href = window.location.host
+            window.location.href = "/"
         },
         error: function() {
             alertify.alert('Unable to complete operation', 'You are already logged out')
             alertify.addEventListener('onok', function() {
-                window.location.href = window.location.host
+                window.location.href = "/"
             })
         }
     });
@@ -157,7 +157,7 @@ function change_room(sendData) {
             window.location.href = `/chat/room=${sendData.new_room}`
              }
         else if (data.response == 'deleted user') {
-            window.location.href = window.location.host
+            window.location.href = "/"
             }
     },
     error: function(data) {
@@ -167,7 +167,7 @@ function change_room(sendData) {
 
 
 function display_online() {
-        const json_file_name = window.location.host + '/static/js/roomUsers.json';
+        const json_file_name = '/static/js/roomUsers.json';
         fetch(json_file_name)
         .then(response => response.json())
         .then(json_data => {
