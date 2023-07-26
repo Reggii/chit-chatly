@@ -1,3 +1,17 @@
 [
-  
+  {
+    "roomname": "rihelm",
+    "users": [
+      "12345678",
+      "rihelm"
+    ]
+  },
+  {
+    "roomname": "asfa",
+    "users": []
+  },
+  {
+    "roomname": "asdasd",
+    "users": []
+  }
 ]
