@@ -1,4 +1,5 @@
 import json
+import logging
 
 # Functions to be called from views.py
 
@@ -10,17 +11,19 @@ def save_as_json(username, roomname):
        }
     with open(json_file_name, 'r') as f:
       json_data = json.load(f)
-      print ('json loaded')
+      
     
     for room in json_data:
       if room['roomname'] == roomname:
             if username not in room['users']:
               room['users'].append(username)
             _dump_to_json(json_file_name, json_data)
-            return print('json saved')
+            logging.info('Json saved')
+            return
     json_data.append(room_object)
     _dump_to_json(json_file_name, json_data)
-    return print('json not saved')
+    logging.info('Json not saved')
+    return
 
 
 def delete_from_json(username, roomname):
