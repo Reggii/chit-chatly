@@ -1,5 +1,4 @@
 import json
-from rest_framework.decorators import api_view
 
 # Functions to be called from views.py
 
@@ -11,16 +10,17 @@ def save_as_json(username, roomname):
        }
     with open(json_file_name, 'r') as f:
       json_data = json.load(f)
+      print ('json loaded')
     
     for room in json_data:
       if room['roomname'] == roomname:
             if username not in room['users']:
               room['users'].append(username)
             _dump_to_json(json_file_name, json_data)
-            return
+            return print('json saved')
     json_data.append(room_object)
     _dump_to_json(json_file_name, json_data)
-    return
+    return print('json not saved')
 
 
 def delete_from_json(username, roomname):
