@@ -31,6 +31,7 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 # DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
 CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS=['https://*.ondigitalocean.app']
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 
