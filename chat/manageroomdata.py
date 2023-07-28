@@ -8,7 +8,7 @@ def save_as_json(username, roomname):
        'roomname': roomname, 
        'users': [username]
        }
-    with open('./static/js/roomUsers.json', 'r') as f:
+    with open('./static/js/roomUsers.json') as f:
       json_data = json.load(f.read())
       
     
@@ -27,7 +27,7 @@ def save_as_json(username, roomname):
 def delete_from_json(username, roomname):
     json_file_name = './static/js/roomUsers.json'
 
-    with open('./static/js/roomUsers.json', 'r') as f:
+    with open('./static/js/roomUsers.json') as f:
       json_data = json.load(f.read())
     
     for room in json_data:
