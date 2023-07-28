@@ -143,6 +143,7 @@ ul li a:hover  {
 	margin: auto;
 	background: linear-gradient(#bf3a79,#081c66);
     z-index: 1100;
+    transform: scale(1.1);
 }
 
 .formPlanet {
@@ -151,9 +152,6 @@ ul li a:hover  {
     bottom: -8rem;
     right: -8rem;
     z-index: -100;
-}
-.form-group:hover {
-    transform: scale(1.1);
 }
 
 .form-group:hover ~ .dot {
