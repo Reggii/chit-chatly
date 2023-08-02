@@ -44,3 +44,5 @@ def _dump_to_json(json_file_name, json_data):
     with open(json_file_name, 'w') as f:
       json.dump(json_data, f, indent=2)
       logging.info('Json saved')
+      logging.info(json_data)
+      logging.info(json_file_name)
