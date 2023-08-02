@@ -171,7 +171,7 @@ function display_online() {
         const json_file_name = '/static/js/roomUsers.json';
         fetch(json_file_name)
         .then(response => {
-            console.log(response.json())
+            console.log(response)
             response.json()
         })
         .then(json_data => {
