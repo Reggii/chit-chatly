@@ -1,1 +1,1 @@
-default_app_config = 'chat.createnewjson.ChatConfig'
+default_app_config = 'chat.apps.ChatConfig'
