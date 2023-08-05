@@ -4,7 +4,7 @@ import logging
 # Functions to be called from views.py
 
 def save_as_json(username, roomname):
-    json_file_name = '.static/js/roomUsers.json'
+    json_file_name = './static/js/roomUsers.json'
     room_object = {
        'roomname': roomname, 
        'users': [username]
