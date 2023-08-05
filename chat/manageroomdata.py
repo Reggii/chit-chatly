@@ -18,7 +18,6 @@ def save_as_json(username, roomname):
             if username not in room['users']:
               room['users'].append(username)
             _dump_to_json(json_file_name, json_data)
-            
             return
     json_data.append(room_object)
     _dump_to_json(json_file_name, json_data)
@@ -46,3 +45,4 @@ def _dump_to_json(json_file_name, json_data):
       logging.info('Json saved')
       logging.info(json_data)
       logging.info(json_file_name)
+    return
