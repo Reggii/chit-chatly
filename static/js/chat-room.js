@@ -171,13 +171,17 @@ function display_online() {
         const json_file_name = '/static/js/roomUsers.json';
         fetch(json_file_name)
         .then(response => {
-            let jsonResponse = response.json()
-            for (const room of jsonResponse) {
-                console.log(json_data)
+            response.json()
+            console.log(response)
+        })
+        .then(json_data => {
+            console.log(json_data)
+            for (const room of json_data) {
+
                 if (room.roomname === roomName) {
                     onlineUsers.push(room.users)
                 }
-        }})
+            }})
 }
     
 const roomHeader = document.querySelector('#room_name')
