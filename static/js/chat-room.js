@@ -171,7 +171,8 @@ function display_online() {
         const json_file_name = '/static/js/roomUsers.json';
         fetch(json_file_name)
         .then(response => {
-            for (const room of response.json()) {
+            let jsonResponse = response.json()
+            for (const room of jsonResponse) {
                 console.log(json_data)
                 if (room.roomname === roomName) {
                     onlineUsers.push(room.users)
