@@ -10,6 +10,7 @@ def save_as_json(username, roomname):
     }
     with open(json_file_name, "w") as file:
         json.dump(data, file)
+        logging.info('json created')
     # room_object = {
     #    'roomname': roomname, 
     #    'users': [username]
