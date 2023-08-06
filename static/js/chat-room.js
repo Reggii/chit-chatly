@@ -152,7 +152,7 @@ function change_room(sendData) {
             'message': userName + ' has left the room' 
         }))
         if (data.response == 'changing room') {
-            display_online()
+            fetchRoomUsers();
             document.cookie = `username=${userName}`
             window.location.href = `/chat/room=${sendData.new_room}`
              }
