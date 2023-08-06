@@ -183,10 +183,10 @@ function fetchRoomUsers() {
             'X-CSRFToken': csrftoken
         },
         success: function(data) {
-            return data
+            return data.response
         },
         error: function(data) {
-            console.log(data);
+            console.log(data.response);
         }
     })
 }

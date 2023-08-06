@@ -84,5 +84,5 @@ def fetch_users(request):
             json_file_name = './static/js/roomUsers.json'
             with open(json_file_name, 'r') as f:
                 json_data = json.load(f)
-            return json_data
-    return JsonResponse({'error': 'Only accepting GET requests'})
+            return JsonResponse({'sucess': True, 'response': json_data})
+    return JsonResponse({'error': True, 'response': 'Only accepting GET requests'})
