@@ -77,3 +77,12 @@ def change_room(request):
     elif req_type == 'leave_room':
       delete_from_json(username, room)
       return JsonResponse({'success': True, 'response': 'deleted user'})
+    
+@api_view(['GET'])
+def fetch_users(request):
+    if request.method == 'GET':
+            json_file_name = './static/js/roomUsers.json'
+            with open(json_file_name, 'r') as f:
+                json_data = json.load(f)
+            return json_data
+    return JsonResponse({'error': 'Only accepting GET requests'})

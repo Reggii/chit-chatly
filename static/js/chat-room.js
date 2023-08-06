@@ -167,20 +167,28 @@ function change_room(sendData) {
 
 
 function display_online() {
-        const json_file_name = '/static/js/roomUsers.json';
-        fetch(json_file_name)
-        .then(response => {
-            response.json()
-            console.log(response)
-        })
-        .then(json_data => {
-            console.log(json_data)
-            for (const room of json_data) {
+        const json_data = fetchRoomUsers();
+        for (const room of json_data) {
+            if (room.roomname === roomName) {
+                onlineUsers.push(room.users)
+            }
+        }}
 
-                if (room.roomname === roomName) {
-                    onlineUsers.push(room.users)
-                }
-            }})
+function fetchRoomUsers() {
+    $.ajax({
+        url: '/api/fetch_users/',
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json",
+            'X-CSRFToken': csrftoken
+        },
+        success: function(data) {
+            return data
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    })
 }
     
 const roomHeader = document.querySelector('#room_name')
