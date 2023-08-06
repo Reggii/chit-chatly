@@ -20,7 +20,6 @@ const chatSocket = new WebSocket(
 
 setTimeout(function() { // Display joined room message in chat text box
 const message = userName + ' has joined the room'
-console.log(onlineUsers)
 chatSocket.send(JSON.stringify({
     'message': message
 }))}, 1000);
