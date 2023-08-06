@@ -4,7 +4,6 @@ let onlineUsers = []
 const roomName = JSON.parse(document.getElementById('room-name').textContent);
 const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 const userName = document.cookie
-console.log(userName)
   .split("; ")
   .find((row) => row.startsWith("username="))
   ?.split("=")[1];
