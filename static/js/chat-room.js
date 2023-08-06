@@ -25,7 +25,7 @@ chatSocket.send(JSON.stringify({
 
 
 setTimeout(function() { // Display online users 
-    display_online()
+    fetchRoomUsers();
         setTimeout(function() { // Get online users from json file and display in users box
         chatSocket.send(JSON.stringify({
             'message': onlineUsers }))
@@ -165,15 +165,6 @@ function change_room(sendData) {
     }
     })}
 
-
-function display_online() {
-        const json_data = fetchRoomUsers();
-        for (const room of json_data) {
-            if (room.roomname === roomName) {
-                onlineUsers.push(room.users)
-            }
-        }}
-
 function fetchRoomUsers() {
     $.ajax({
         url: '/api/fetch_users/',
@@ -183,7 +174,12 @@ function fetchRoomUsers() {
             'X-CSRFToken': csrftoken
         },
         success: function(data) {
-            return data.response
+            for (const room of data.response) {
+                if (room.roomname === roomName) {
+                    onlineUsers.push(room.users)
+                }
+                }
+            return
         },
         error: function(data) {
             console.log(data.response);
