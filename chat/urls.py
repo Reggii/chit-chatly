@@ -10,7 +10,7 @@ urlpatterns = [
     path('api/log_out_user/', views.logout_user, name="logout_user"),
     path("chat/room=<str:room_name>/", views.room, name="room"),
     path('api/change_room/', views.change_room, name="change_room"),
-    path('api/fetch_sers/', views.fetch_users, name="fetch_users")
+    path('api/fetch_users/', views.fetch_users, name="fetch_users")
 ]
 
 if settings.DEBUG:
