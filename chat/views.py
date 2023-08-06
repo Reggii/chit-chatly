@@ -78,7 +78,7 @@ def change_room(request):
       delete_from_json(username, room)
       return JsonResponse({'success': True, 'response': 'deleted user'})
     
-@api_view(['GET'])
+@api_view(['GET' , 'POST'])
 def fetch_users(request):
     if request.method == 'GET':
             json_file_name = './static/js/roomUsers.json'
