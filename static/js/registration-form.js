@@ -45,10 +45,10 @@ function registerUser(userDetails) {
             window.location.href = '/'} , 1500);
         },
         error: function(data) {
-            if (data.error == 'Invalid request') {
+            if (data.responseJSON.error == 'Invalid request') {
                 alertify.alert('Error', 'Ther was an issue with your request')
             }
-            if (data.error == 'Username already exists') {
+            if (data.responseJSON.error == 'Username already exists') {
                 alertify.alert('Error', 'Username already exists')
             }
             console.log(data);
