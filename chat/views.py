@@ -24,7 +24,7 @@ def register_user(request):
     if username and password:
         if User.objects.filter(username=username).exists():
             status_code = 409
-            return JsonResponse({'error': 'Username already exists.'}, status=status_code)
+            return JsonResponse({'error': 'Username already exists'}, status=status_code)
         
         user = User.objects.create_user(username=username, password=password)
         user.save()
